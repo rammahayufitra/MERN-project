@@ -1,13 +1,14 @@
 //rafce 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const AddUser = () => {
+const EditUser = () => {
 const [name, setName] = useState();
 const [email, setEmail] = useState(); 
 const [gender, setGender] = useState("Male");
 const navigate = useNavigate();
+const {id} = useParams();
 
 const saveUser = async(e) => {
     e.preventDefault();
@@ -53,14 +54,14 @@ return (
                 </div>
                 <div className="field">
                     <div className="control">
-                        <button type="submit" className='button is-success'>Save</button>
+                        <button type="submit" className='button is-success'>Update</button>
                     </div>
                 </div>
             </form>
         </div>
         </div>
     </div>
-    )
-}
+    );
+};
 
-export default AddUser
+export default EditUser
